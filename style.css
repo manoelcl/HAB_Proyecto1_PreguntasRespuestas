@@ -12,6 +12,9 @@
   --titleColor: rgb(223, 223, 223);
   --answerColor: #ffce2e;
   --backgroundColor: #54086b;
+  --checkingColor: #ffb547;
+  --trueColor: #32c724;
+  --falseColor: #c72424;
 }
 
 html {
@@ -42,6 +45,12 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
+footer {
+  color: var(--backgroundColor);
+  font-size: 0.75rem;
+  margin: 0.5rem;
+}
+
 .quiz ul {
   list-style: none;
   display: grid;
@@ -59,8 +68,40 @@ body {
   border-radius: 4px;
   box-shadow: 0px 0px 12px 1px rgb(0, 0, 0);
 }
+
+.quiz .button {
+  background-color: var(--tertiaryColor);
+  text-align: center;
+  color: var(--answerColor);
+  background-color: var(--mainColor);
+  border: var(--borderColor) solid 2px;
+  margin: 0 auto 0 auto;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0px 0px 12px 1px rgb(0, 0, 0);
+  width: fit-content;
+}
+
+.quiz .button:hover,
 .quiz li:hover {
   background-color: #463497;
+}
+
+.quiz ul li.check {
+  background-color: var(--checkingColor);
+  transition: background-color 0.2;
+  color: white;
+}
+.quiz ul li.true {
+  background-color: var(--trueColor);
+  transition: background-color 0.2;
+}
+.quiz ul li.false {
+  background-color: var(--falseColor);
+  transition: background-color 0.2;
+}
+.unclickable {
+  pointer-events: none;
 }
 .quiz {
   margin: 1rem;
