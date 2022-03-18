@@ -55,7 +55,7 @@ const manageAnswer = async (event, questionArray) => {
 const gameOver = () => {
   quizSection.innerHTML = "";
   const h2 = document.createElement("h2");
-  h2.textContent = `Game Over. Tu puntuación es : ${counter} de 10`;
+  h2.textContent = `Game Over. Your score is : ${counter} de 10`;
   const p = document.createElement("p");
   p.classList.add("button");
   p.textContent = "Retake quiz";
