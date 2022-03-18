@@ -3,6 +3,7 @@
 const quizSection = document.querySelector(".quiz");
 let counter = 0;
 
+//Añade funcionalidad al botón para iniciar el test
 document
   .querySelector(".button")
   .addEventListener("click", () => generateQuiz());
@@ -55,7 +56,7 @@ const manageAnswer = async (event, questionArray) => {
 const gameOver = () => {
   quizSection.innerHTML = "";
   const h2 = document.createElement("h2");
-  h2.textContent = `Game Over. Your score is : ${counter} de 10`;
+  h2.textContent = `Game Over. Your score is : ${counter} out of 10`;
   const p = document.createElement("p");
   p.classList.add("button");
   p.textContent = "Retake quiz";
