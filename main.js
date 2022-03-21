@@ -72,7 +72,7 @@ const generateQuiz = async () => {
   counter = 0;
   try {
     //Importamos el json con método fetch
-    const response = await fetch("./quz.json");
+    const response = await fetch("./quiz.json");
 
     if (response.ok) {
       const questions = await response.json();
