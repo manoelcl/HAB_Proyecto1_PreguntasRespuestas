@@ -3,11 +3,6 @@
 const quizSection = document.querySelector(".quiz");
 let counter = 0;
 
-//Añade funcionalidad al botón para iniciar el test
-document
-  .querySelector(".button")
-  .addEventListener("click", () => generateQuiz());
-
 const addElements = (questionArray) => {
   //Borramos el posible contenido de la sección
   quizSection.innerHTML = "";
@@ -54,12 +49,19 @@ const manageAnswer = async (event, questionArray) => {
 };
 
 const gameOver = () => {
+  createStartButton(
+    `Game Over. Your score is : ${counter} out of 10`,
+    "Retake quiz"
+  );
+};
+
+const createStartButton = (titleString, buttonString) => {
   quizSection.innerHTML = "";
   const h2 = document.createElement("h2");
-  h2.textContent = `Game Over. Your score is : ${counter} out of 10`;
+  h2.textContent = titleString;
   const p = document.createElement("p");
   p.classList.add("button");
-  p.textContent = "Retake quiz";
+  p.textContent = buttonString;
   p.addEventListener("click", () => {
     generateQuiz();
   });
@@ -70,7 +72,7 @@ const generateQuiz = async () => {
   counter = 0;
   try {
     //Importamos el json con método fetch
-    const response = await fetch("./quiz.json");
+    const response = await fetch("./quz.json");
 
     if (response.ok) {
       const questions = await response.json();
@@ -86,5 +88,9 @@ const generateQuiz = async () => {
     }
   } catch (error) {
     console.log(error);
+    createStartButton(error, "Retry");
   }
 };
+
+//Añade funcionalidad al botón para iniciar el test
+createStartButton("Welcome to the ultimate cinema quiz.", "Take test");
